@@ -13,7 +13,8 @@ import { ProdutoComponent } from './produto/produto.component';
   ],
   imports: [
     CommonModule,
-  ],
+    ListaProdutosRoutingModule
+],
   exports: [
     ListaProdutosRoutingModule,
   ]

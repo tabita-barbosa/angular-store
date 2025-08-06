@@ -1,8 +1,16 @@
 <div class="mx-5 px-5">
     <div class="d-flex flex-row-reverse mt-2">
-        <input placeholder="Buscar:" class="buscar">
+        <!-- para disparar evento aqui, chama func, e passa evento reativa -->
+         <!-- aqui se der print na variavel da classe ele vai printando tudo que foi seguido ou apaga na hora {{busca}} -->
+        <input placeholder="Buscar:" class="buscar" (keyup)="buscar($event)">
     </div>
     <div class="row m-0">
-        <app-produto></app-produto>
+        <ng-container *ngFor="let item of lista_produtos"> 
+            <!-- criando laco para iterar lista de produtos, para capturar index ; index as i-->
+            <div class="col-6 p-2" *ngIf="item.nome.toLowerCase().includes(busca.toLowerCase())">
+                <!-- data binding -->
+                <app-produto [produto]="item"></app-produto>
+            </div>
+        </ng-container>
     </div>
 </div>
