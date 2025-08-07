@@ -15,6 +15,7 @@ export class ConsumirApiService {
   getDados(url: string) {
     return this.https.get<any>(url).pipe(map(
       (result: any) => {
+        console.log(result)
         return result
       }
     ))

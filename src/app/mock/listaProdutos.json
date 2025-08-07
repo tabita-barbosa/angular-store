@@ -1,42 +1,44 @@
-[
-    {
-        "nome": "mouse",
-        "descricao": "mouse simples",
-        "preco": 35.49
-    },
-    {
-        "nome": "monitor",
-        "descricao": "monitor simples",
-        "preco": 499.99
-    },
-    {
-        "nome": "teclado",
-        "descricao": "teclado simples",
-        "preco": 79.99
-    },
-    {
-        "nome": "mouse pad",
-        "descricao": "mouse pad simples",
-        "preco": 25.49
-    },
-    {
-        "nome": "webcam",
-        "descricao": "webcam simples",
-        "preco": 150.79
-    },
-    {
-        "nome": "cabo hdmi",
-        "descricao": "cabo hmdi simples",
-        "preco": 47.99
-    },
-    {
-        "nome": "fone bluetooth",
-        "descricao": "fone bluetooth simples",
-        "preco": 72.49
-    },
-    {
-        "nome": "cabo usb-c",
-        "descricao": "cabo usb-c simples",
-        "preco": 27.89
-    }
-]
+{
+    "produtos": [
+        {
+            "nome": "mouse",
+            "descricao": "mouse simples",
+            "preco": 35.49
+        },
+        {
+            "nome": "monitor",
+            "descricao": "monitor simples",
+            "preco": 499.99
+        },
+        {
+            "nome": "teclado",
+            "descricao": "teclado simples",
+            "preco": 79.99
+        },
+        {
+            "nome": "mouse pad",
+            "descricao": "mouse pad simples",
+            "preco": 25.49
+        },
+        {
+            "nome": "webcam",
+            "descricao": "webcam simples",
+            "preco": 150.79
+        },
+        {
+            "nome": "cabo hdmi",
+            "descricao": "cabo hmdi simples",
+            "preco": 47.99
+        },
+        {
+            "nome": "fone bluetooth",
+            "descricao": "fone bluetooth simples",
+            "preco": 72.49
+        },
+        {
+            "nome": "cabo usb-c",
+            "descricao": "cabo usb-c simples",
+            "preco": 27.89
+        }
+    ]
+}

@@ -29,5 +29,15 @@ export class AdicaoCarrinhoService {
     }
   }
 
+  getTotalCarrinho() {
+    let i = 0;
+    let total = 0;
+    while (i < this.listaProdutos.length) {
+      total += this.listaProdutos[i].preco * (this.listaProdutos[i].quantidade || 1)
+      i += 1
+    }
+    return total
+  }
+
   constructor() { }
 }

@@ -11,6 +11,7 @@ import { Produto } from '../../models/produto.model';
 export class CarrinhoComponent {
 
   produtos: Produto[] = [];
+  total = 0;
 
   constructor(public addCarrinhoService: AdicaoCarrinhoService) {
 
@@ -18,12 +19,14 @@ export class CarrinhoComponent {
 
   ngOnInit(): void {
     this.produtos = this.addCarrinhoService.listaProdutos
+    this.total = this.addCarrinhoService.getTotalCarrinho()
   }
 
   adcProduto(produto: Produto) {
     if (produto.quantidade) {
       produto.quantidade += 1
     }
+    this.total = this.addCarrinhoService.getTotalCarrinho()
   }
 
   rmvProduto(produto: Produto) {
@@ -33,6 +36,7 @@ export class CarrinhoComponent {
     if (produto.quantidade == 0) {
       this.addCarrinhoService.rmvProduto(produto)
     }
+    this.total = this.addCarrinhoService.getTotalCarrinho()
   }
 
   // sobre carrinho e persistencia
