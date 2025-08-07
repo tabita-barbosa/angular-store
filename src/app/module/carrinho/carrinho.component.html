@@ -1,1 +1,40 @@
-<p>carrinho works!</p>
+<!-- services sao trechos de ts que pode ser utilizados entre componentes e resgatar valor atraves dele tbm -->
+<div class="p-5">
+    <div class="wrapper-produtos">
+        <div *ngIf="produtos.length >= 1">
+            <div class="mt-1 row titulos">
+                <div class="col-1 d-flex align-items-center"></div>
+                <div class="col-8 d-flex align-items-center">nome</div>
+                <div class="col-1 d-flex align-items-center">qtd</div>
+                <div class="col-1 d-flex align-items-center">preço</div>
+                <div class="col-1 d-flex align-items-center">total</div>
+            </div>
+            <ng-container *ngFor="let item of produtos; index as i">
+                <div class="produtos row" [ngClass]="i % 2 === 1 ? 'produto-impar' : 'produto-par'">
+                    <div class="col-1 d-flex align-items-center">{{i + 1}}</div>
+                    <div class="col-8 d-flex align-items-center">{{item.nome}}</div>
+                    <div class="col-1 d-flex align-items-center justify-content-between">{{item.quantidade}}
+                        <div>
+                            <div class="qtd-btn text-center" (click)="adicionarProduto(item)">+</div>
+                            <div class="qtd-btn text-center" (click)="removerProduto(item)">-</div>
+                        </div>
+                    </div>
+                    <div class="col-1 d-flex align-items-center">R$ {{item.preco}}</div>
+                    <div class="col-1 d-flex align-items-center">R$ {{(item.preco * (item.quantidade || 1)).toFixed(2)}}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div *ngIf="produtos.length === 0" class="d-flex justify-content-center mt-3 h100">
+            Nenhum item adicionado ao carrinho
+        </div>
+    </div>
+    <div class="d-flex flex-row-reverse align-items-center mt-2">
+        <div>
+            <button type="button" class="btn btn-outline-primary">Finalizar compra</button>
+        </div>
+        <div class="p-2">
+            Total: R$ {{total}}
+        </div>
+    </div>
+</div>

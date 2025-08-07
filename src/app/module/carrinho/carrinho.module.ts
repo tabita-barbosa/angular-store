@@ -5,7 +5,8 @@ import { CarrinhoRoutingModule } from './carrinho-routing-module';
 import { CarrinhoComponent } from './carrinho.component';
 
 
-@NgModule({imports: [
+@NgModule({
+  imports: [
     CommonModule,
     CarrinhoRoutingModule
   ]
