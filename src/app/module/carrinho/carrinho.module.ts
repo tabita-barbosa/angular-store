@@ -6,6 +6,9 @@ import { CarrinhoComponent } from './carrinho.component';
 
 
 @NgModule({
+  declarations: [
+    CarrinhoComponent
+  ],
   imports: [
     CommonModule,
     CarrinhoRoutingModule

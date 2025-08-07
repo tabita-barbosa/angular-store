@@ -9,13 +9,24 @@ export class AdicaoCarrinhoService {
   listaProdutos: Produto[] = []
 
   adcProduto(produto: Produto) {
-    if (this.listaProdutos.includes(produto)) {
-      return false
+    let i = 0;
+    while (i < this.listaProdutos.length) {
+      if (produto.nome === this.listaProdutos[i].nome) {
+        return false
+      }
+      i += 1
     }
+
     produto.quantidade = 1;
     this.listaProdutos.push(produto) // manda de volta com valor atualizado
     console.log(this.listaProdutos)
     return true
+  }
+
+  rmvProduto(produto: Produto) {
+    if (this.listaProdutos.includes(produto)) { // includes funciona pq a gente só add no mesmo endereço agora
+      this.listaProdutos.splice(this.listaProdutos.indexOf(produto), 1) // 1, porque é um produto
+    }
   }
 
   constructor() { }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Produto } from '../../models/produto.model';
+import { ConsumirApiService } from '../../service/consumir-api.service';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -7,61 +8,26 @@ import { Produto } from '../../models/produto.model';
   templateUrl: './lista-produtos.component.html',
   styleUrl: './lista-produtos.component.scss'
 })
-export class ListaProdutosComponent {
+export class ListaProdutosComponent implements OnInit {
 
   busca: string = ''
-  lista_produtos: Produto[] = [
-    {
-      nome: "mouse",
-      descricao: "mouse simples",
-      preco: 35
-    },
-    {
-      nome: "monitor",
-      descricao: "monitor simples",
-      preco: 500
-    },
-    {
-      nome: "teclado",
-      descricao: "teclado simples",
-      preco: 80
-    },
-    {
-      nome: "mouse pad",
-      descricao: "mouse pad simples",
-      preco: 25
-    },
-    {
-      nome: "webcam",
-      descricao: "webcam simples",
-      preco: 150
-    },
-    {
-      nome: "cabo hdmi",
-      descricao: "cabo hmdi simples",
-      preco: 50
-    },
-    {
-      nome: "fone bluetooth",
-      descricao: "fone bluetooth simples",
-      preco: 75
-    },
-    {
-      nome: "cabo usb-c",
-      descricao: "cabo usb-c simples",
-      preco: 30
-    },
-  ]
+  lista_produtos: Produto[] = []
 
-  buscar(event:any) {
+  buscar(event: any) {
     // toda ref a variavel que esta fora funcao precisa do this, 
-    // se nao ela chama o escopo sõ da funao
+    // se nao ela chama o escopo sõ da função
     this.busca = event.target.value;
   }
 
-  constructor() { }
+  constructor(
+    public consumirApi: ConsumirApiService
+  ) { }
 
   ngOnInit(): void {
-
+    // quando cair na inicialização ele chama o get e o resultado do get vira nossa lista de produtos
+    // que é acessada entre componentes
+    this.consumirApi.getDados('http://localhost:3000/produtos').subscribe((result) => {
+      this.lista_produtos = result;
+    })
   }
 }

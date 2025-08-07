@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AdicaoCarrinhoService } from './adicao-carrinho.service';
 
-describe('AdicaoCarrinho', () => {
+describe('AdicaoCarrinhoService', () => {
   let service: AdicaoCarrinhoService;
 
   beforeEach(() => {

@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Produto } from '../../../models/produto.model'
-import {
-  AdicaoCarrinhoService
+import { AdicaoCarrinhoService } from '../../../service/adicao-carrinho.service';
 
-} from '../../../service/adicao-carrinho.service';
 @Component({
   selector: 'app-produto',
   standalone: false,

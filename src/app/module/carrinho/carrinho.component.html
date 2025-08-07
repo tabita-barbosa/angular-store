@@ -10,16 +10,18 @@
                 <div class="col-1 d-flex align-items-center">total</div>
             </div>
             <ng-container *ngFor="let item of produtos; index as i">
-                <div class="produtos row" [ngClass]="i % 2 === 1 ? 'produto-impar' : 'produto-par'">
+                <!-- se o indice der uma sobra igual a um, numero primo, muda a cor - dstq visual! -->
+                <div class="produto row" [ngClass]="i % 2 === 1 ? 'produto-impar' : 'produto-par'">
                     <div class="col-1 d-flex align-items-center">{{i + 1}}</div>
                     <div class="col-8 d-flex align-items-center">{{item.nome}}</div>
                     <div class="col-1 d-flex align-items-center justify-content-between">{{item.quantidade}}
                         <div>
-                            <div class="qtd-btn text-center" (click)="adicionarProduto(item)">+</div>
-                            <div class="qtd-btn text-center" (click)="removerProduto(item)">-</div>
+                            <div class="qtd-btn text-center" (click)="adcProduto(item)">+</div>
+                            <div class="qtd-btn text-center" (click)="rmvProduto(item)">-</div>
                         </div>
                     </div>
                     <div class="col-1 d-flex align-items-center">R$ {{item.preco}}</div>
+                    <!-- esse (item.quantidade || 1) é um if pq quantidade pq ser undefined -->
                     <div class="col-1 d-flex align-items-center">R$ {{(item.preco * (item.quantidade || 1)).toFixed(2)}}
                     </div>
                 </div>
@@ -34,7 +36,8 @@
             <button type="button" class="btn btn-outline-primary">Finalizar compra</button>
         </div>
         <div class="p-2">
-            Total: R$ {{total}}
+            Total
+            <!-- Total: R$ {{total}} -->
         </div>
     </div>
 </div>
